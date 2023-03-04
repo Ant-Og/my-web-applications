@@ -35,12 +35,12 @@ describe Application do
     end
   end
 
-#   context 'POST /sort-names' do
-#     it 'returns a string of names sorted in alphabetical order' do
-#       response = post('/sort-names', names: 'Will, Anthony, JC, Henry')
+  context 'POST /sort-names' do
+    it 'returns a string of names sorted in alphabetical order' do
+      response = post('/sort-names', names: 'Will, Anthony, JC, Henry')
       
-#       expect(response.status).to eq(200)
-#       expect(response.body).to eq('Anthony Henry, JC, Will')
-#     end
-#   end
+      expect(response.status).to eq(200)
+      expect(response.body).to eq('Anthony, Henry, JC, Will')
+    end
+  end
 end
