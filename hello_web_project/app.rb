@@ -6,9 +6,9 @@ class Application < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
-  
+
   get "/hello" do
-    name = params[:name]
+    @name = params[:name]
     return erb(:index)
   end
   

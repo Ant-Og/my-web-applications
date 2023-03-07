@@ -9,19 +9,21 @@ describe Application do
   let(:app) { Application.new }
 
   context 'GET /hello' do
-      xit 'returns 200 ok' do
-      response = get('/hello?name=Anthony')
+    it 'returns a html message with a given name' do
+      response = get('/hello', name: 'Anthony')
       
       expect(response.status).to eq(200)
-      expect(response.body).to eq('Hello Anthony')
+      expect(response.body).to include('Hello Anthony!')
     end
 
-    it 'contains a h1 title' do
-      response = get('/hello')
+    it 'returns a html hello message with a different
+    given name' do
+      response = get('/hello', name: 'Tom')
+      
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h1>Hello!</h1>')
+      expect(response.body).to include('Hello Tom!')
     end
-  end 
+  end
   
   context 'POST /submit' do
     it 'returns Hello name and message' do
@@ -34,7 +36,7 @@ describe Application do
   
   context 'GET /names' do
     it 'returns a string of names' do
-      response = get('/names?names=Anthony, Tony, Tone')
+      response = get('/names', names: 'Anthony, Tony, Tone')
 
       expect(response.status).to eq(200)
       expect(response.body).to eq('Anthony, Tony, Tone')
