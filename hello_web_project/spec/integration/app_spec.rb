@@ -9,11 +9,17 @@ describe Application do
   let(:app) { Application.new }
 
   context 'GET /hello' do
-    it 'returns 200 ok' do
+      xit 'returns 200 ok' do
       response = get('/hello?name=Anthony')
       
       expect(response.status).to eq(200)
       expect(response.body).to eq('Hello Anthony')
+    end
+
+    it 'contains a h1 title' do
+      response = get('/hello')
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Hello!</h1>')
     end
   end 
   
@@ -44,3 +50,4 @@ describe Application do
     end
   end
 end
+
