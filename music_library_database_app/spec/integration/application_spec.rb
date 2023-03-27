@@ -10,4 +10,12 @@ describe Application do
   # class so our tests work.
   let(:app) { Application.new }
 
+  context 'GET /albums' do
+    it 'returns list of albums in the database' do
+      response = get('/albums')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Baltimore')
+    end
+  end
 end
