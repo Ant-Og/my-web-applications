@@ -44,4 +44,16 @@ describe Application do
       expect(response.body).to eq(expected_response)
     end
   end
+
+  context 'POST /artists' do
+    it 'adds user inputed album to the database' do
+      response = post('/artists')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to eq('')
+
+      response = get('/artists')
+      expect(response.body).to include('ABBA')
+    end
+  end
 end
