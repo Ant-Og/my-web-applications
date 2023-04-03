@@ -17,6 +17,16 @@ describe Application do
       expect(response.status).to eq(200)
       expect(response.body).to include('Baltimore')
     end
+
+    xit 'contains a link for each album listed' do
+      response = get('/albums')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include(
+        "<a href='/albums/2'>
+          <Surfer Rosa>
+        </a><br />")
+    end
   end
 
   context 'GET /albums/:id' do
