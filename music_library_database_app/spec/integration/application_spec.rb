@@ -19,6 +19,18 @@ describe Application do
     end
   end
 
+  context 'GET /albums/:id' do
+    it 'returns info about ablum 2' do
+      response = get('/albums/2')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Surfer Rosa</h1>')
+      expect(response.body).to include('Artist: Pixies')
+      expect(response.body).to include('Release year: 1988')
+      expect(response.body).to include('Genre: Rock')
+    end
+  end
+
   context 'POST /albums' do
     it 'adds user inputed album to the database' do
       response = post('/albums', title: 'Voyage', 
