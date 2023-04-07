@@ -1,8 +1,21 @@
-<h1>Add an Album!</h1>
+<h1>Add an album!</h1>
 <form method='POST' action='/albums'>
-  <input type='text' name='album_title'/>
-  <input type='text' name='release_year'/>
-  <input type='text' name='artist_id'/>
+  <div>
+    <label>Album title</label>
+    <input type='text' name='title'/>
+  </div>
 
-  <input type='submit'/>
+  <div>
+    <label>Album release year</label>
+    <input type='text' name='release_year'/>
+  </div>
+
+  <div>
+    <label>Artist ID</label>
+    <input type='text' name='artist_id'/>
+  </div>
+  
+  <div>
+    <input type='submit'/>
+  </div>
 </form>
